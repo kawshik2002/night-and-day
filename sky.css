@@ -1,0 +1,252 @@
+ body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+ }
+ /* .container{
+     margin: 0;
+     padding: 0;
+     max-width: 100%;
+
+ } */
+ .scene{
+    position: relative;
+    width: 100%;
+    height:100vh ; 
+   background: linear-gradient(#111425,#3751e0);
+   background-attachment: fixed;
+   overflow: hidden;
+} 
+ .forest{
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    left: 0;
+    height: 100%;
+     transform: scale(1.1,1);
+     z-index: 100;
+    transition: 0.5s;
+    /* transform: translateY(20px); */ 
+} 
+.scene.active .forest{
+    bottom: -100%;
+}
+
+.scene.active span{
+    display: none;
+}
+
+.cloud1{
+    position: absolute;
+left: 0;
+max-width: 600px;
+z-index: 10000000;
+animation: animatecloud 50s linear infinite;
+    /* transform: scale(0.7,0.8); */
+}
+
+.cloud2{
+    position: absolute;
+left: 0;
+max-width: 600px;
+z-index: 10000000;
+animation: animatecloud 35s linear infinite;
+    /* transform: scale(0.7,0.8); */
+}
+
+.cloud3{
+    position: absolute;
+left: 0;
+top: 0%;
+max-width: 600px;
+z-index: 10000000;
+animation: animatecloud 80s linear infinite;
+    /* transform: scale(0.7,0.8); */
+}
+.cloud4{
+    position: absolute;
+left: 0;
+top: 200px;
+max-width: 200px;
+z-index: 10000000;
+animation: animatecloud 70s linear infinite;
+animation-delay: -20s;
+    /* transform: scale(0.7,0.8); */
+}
+.cloud5{
+    position: absolute;
+left: 0;
+top: 150px;
+max-width: 500px;
+z-index: 10000000;
+animation: animatecloud 40s linear infinite;
+animation-delay: -20s;
+    /* transform: scale(0.7,0.8); */
+}
+.cloud6{
+    position: absolute;
+left: 0;
+top: 75px;
+max-width: 400px;
+z-index: 10000000;
+animation: animatecloud 30s linear infinite;
+animation-delay: -10s;
+    /* transform: scale(0.7,0.8); */
+}
+@keyframes animatecloud{
+    0%{
+        transform: translateX(-100%) scale(1);
+    }
+    100%{
+        transform: translateX(400%) scale(1.5);
+    }
+}
+ .moon{
+    position: absolute;
+    background-color:#fff;
+    top: 100px;
+    left: 400px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+transition: 0.5s;
+cursor: pointer;
+} 
+img{
+    pointer-events: none;
+}
+.moon::before{
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#111425,#3751e0);
+    background-attachment: fixed;
+
+}
+
+.scene span{
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    10%,90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100px);
+
+    }
+}
+/* .fa.fa-star{
+    color: white;
+} */
+
+ .scene.active{
+     background: linear-gradient(#ffeb3b,#ff9800);
+ }
+ .scene.active .moon::before{
+     opacity: 0;
+ }
+ .scene.active .moon{
+     left: 200px;
+     box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 0 40px rgba(255, 255, 255, 0.5),
+                 0 0 0 80px rgba(255, 255, 255, 0.5),
+                 0 0 0 120px rgba(255, 255, 255, 0.3),
+                 0 0 0 180px rgba(255, 255, 255, 0.2),
+                 0 0 0 240px rgba(255, 255, 255, 0.2),
+                 0 0 0 300px rgba(255, 255, 255, 0.1);
+ }
+
+ .bg{
+     position: absolute;
+     max-width: 100%;
+    bottom: -120px;
+     left: 30%;
+     z-index: 1000;
+     transition: 0.5s;
+     transform: translateY(100%);
+ }
+
+ .scene::before{
+     content: "";
+     position: absolute;
+     bottom: -100%;
+     left: 0;
+     width: 100%;
+     height: 250px;
+     transition: 0.5s;
+     background: linear-gradient(transparent,#fff,#2598f3);
+ }
+ .scene.active::before{
+     bottom: 0;
+ }
+ .scene.active .bg{
+     transform: translateY(0);
+ }
+
+@media screen and (max-width:500px){
+    .moon::before{
+/* position: absolute; */
+/* margin-left: 30%;
+margin-right: 50%; */
+/* transform: translateX(10px); */
+       /* display: none; */
+       display: none;
+    }
+    .moon{
+        display: none;
+    }
+
+    .moon2{
+        position: absolute;
+        background-color:#fff;
+        top: 100px;
+        left: 200px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+    } 
+    .moon2::before{
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 15px;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(#111425,#3751e0);
+        background-attachment: fixed;
+    
+    }
+.scene.active .moon2::before{
+opacity: 0;
+}
+.scene.active .moon2{
+    left: 200px;
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 0 40px rgba(255, 255, 255, 0.5),
+                0 0 0 80px rgba(255, 255, 255, 0.5),
+                0 0 0 120px rgba(255, 255, 255, 0.3),
+                0 0 0 180px rgba(255, 255, 255, 0.2),
+                0 0 0 240px rgba(255, 255, 255, 0.2),
+                0 0 0 300px rgba(255, 255, 255, 0.1);
+}
+}
+
+
